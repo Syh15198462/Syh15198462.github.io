@@ -1,0 +1,631 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android, XML," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Android开发中的View第一课详细叙述了针对零基础小白如何系统学习android开发，本节课程的任务是开发两个简单的应用。第一个是生日卡片，第二个是点咖啡的应用，需求是记录用户的订单，然后把信息通过电子邮件发送。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StudyJams1A">
+<meta property="og:url" content="http://yoursite.com/2016/04/09/StudyJams1A/index.html">
+<meta property="og:site_name" content="折腾日记">
+<meta property="og:description" content="Android开发中的View第一课详细叙述了针对零基础小白如何系统学习android开发，本节课程的任务是开发两个简单的应用。第一个是生日卡片，第二个是点咖啡的应用，需求是记录用户的订单，然后把信息通过电子邮件发送。">
+<meta property="og:updated_time" content="2016-04-22T11:47:57.924Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="StudyJams1A">
+<meta name="twitter:description" content="Android开发中的View第一课详细叙述了针对零基础小白如何系统学习android开发，本节课程的任务是开发两个简单的应用。第一个是生日卡片，第二个是点咖啡的应用，需求是记录用户的订单，然后把信息通过电子邮件发送。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/04/09/StudyJams1A/"/>
+
+  <title> StudyJams1A | 折腾日记 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">折腾日记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">折腾是一种生活态度</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                StudyJams1A
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-09T20:51:30+08:00" content="2016-04-09">
+              2016-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Android开发中的View"><a href="#Android开发中的View" class="headerlink" title="Android开发中的View"></a>Android开发中的View</h1><p>第一课详细叙述了针对零基础小白如何系统学习android开发，本节课程的任务是开发两个简单的应用。第一个是生日卡片，第二个是点咖啡的应用，需求是记录用户的订单，然后把信息通过电子邮件发送。<br><a id="more"></a><br>首先我们从<strong>View（视窗）</strong>讲起。  </p>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><h3 id="View是什么？"><a href="#View是什么？" class="headerlink" title="View是什么？"></a>View是什么？</h3><p>简单来讲View是屏幕上用来展示内容的长方形。他可以是一个图片，一段文本，一个按钮或者任何应用能显示的东西。所有这些View组合起来就组成了屏幕的<strong>布局（layout）</strong>，View对于应用的布局来说是基本的构成元素。应用给你展示与你交互的所有这些叫做<strong>用户界面（User Interface）</strong>，也就是我们常说的UI。  </p>
+<p>View分很多种，各个名字不同。例如：</p>
+<ul>
+<li>展示文字的View叫做<strong>TextView</strong>  </li>
+<li>展示图片的View叫做<strong>ImageView</strong>  </li>
+<li>显示一个按钮的View叫做<strong>Button</strong>  </li>
+</ul>
+<p>View的名字以Camel Case（驼峰命名法）书写的。他的规范是：</p>
+<ul>
+<li>单词间不加空格  </li>
+<li>每个单词首字母大写  </li>
+</ul>
+<p>Camel Case的由来：因整个词的外形上下起伏就像驼峰一样。 </p>
+<h2 id="IDE：集成开发环境"><a href="#IDE：集成开发环境" class="headerlink" title="IDE：集成开发环境"></a>IDE：集成开发环境</h2><p>我们使用Android Studio来进行Android开发。AS即所谓的写代码的空间</p>
+<h2 id="XML：可拓展标记语言"><a href="#XML：可拓展标记语言" class="headerlink" title="XML：可拓展标记语言"></a>XML：可拓展标记语言</h2><p>我们可以通过它来建立布局 </p>
+<h3 id="XML的语法"><a href="#XML的语法" class="headerlink" title="XML的语法"></a>XML的语法</h3><p>定义有效的XML规则，如果你定义了无效的XML规则，则它不会显示。<br>我们以这段TextView的XML元素的代码为例<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"Happy Birthday!"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@android:color/darker_gray"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"75dp"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="观察代码"><a href="#观察代码" class="headerlink" title="观察代码"></a>观察代码</h4><p>首尾都有“&lt;”、“&gt;”，并且在尾部括号前还有“/”，TextView应遵循驼峰命名法。其中的T和V都应大写。这里的TextView叫做标签。<br>以“&lt;”开头，跟着是View的名字，比如ImageView,Button或者其他任意类型的View。<br>然后每行一个属性以定义这个TextView的属性。最后是一个“/”和“&gt;”.<br>如果你少写了这里任何一个符号，这段XML都是无效的。</p>
+<h4 id="XML语法详解"><a href="#XML语法详解" class="headerlink" title="XML语法详解"></a>XML语法详解</h4><p>对于每一个XML元素，每当你开始（&lt;）一个标签，你都需要在结束的时候关上它（&gt;）.<br>这就好像我们在每一句话后面加上句号（。）。不过对于XML而言，你需要结束的是标签（/&gt;）而不是句子。<br>以上面的TextView标签为例，这样的写法我们称它为自闭标签（即自己关闭自己）。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"Happy Birthday!"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@android:color/darker_gray"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"75dp"</span> &gt;</div><div class="line"><span class="tag">&lt;/<span class="name">TextView</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>注意观察和上面的自闭标签有什么区别，你会发现：第二个TextView是以一个单独的关闭标签进行关闭，这样的View就允许拥有自己的子View。  </p>
+<p>如果需要写父子元素我们就用第二种写法，如果不需要，直接写一个自闭标签就可以了。  </p>
+<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><p>以上述XML代码为例，我们可以看到在元素里有很多文字例如“android:text”等等，这些文字就叫做属性，他们是用来决定手机上View行为或外观的特性。<br>更仔细的查看每行的格式：你可以看到左边的是属性名，右边则为实际的值。<br>以下面这行代码为例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:text="Happy Birthday!"</div></pre></td></tr></table></figure></p>
+<p>这里的“android:text”即为属性名，“Happy Birthday!”即为属性值。在XML中，属性值应该被放在双引号中。 中间的等号为赋值号，意为：将“Happy Birthday!”这个值赋给“android:text”。所有的属性都有默认值，只要是我们没有特地列出的属性，都为默认值。</p>
+<h5 id="单位DP"><a href="#单位DP" class="headerlink" title="单位DP"></a>单位DP</h5><p>以这段代码为例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">android:layout_width="150dp"</div><div class="line">android:layout_height="75dp"</div></pre></td></tr></table></figure></p>
+<p>DP全称为：密度无关像素。这里的单位DP和厘米或毫米一样，我们可以用它来描述Android上View的尺寸，也可以描述View之间的距离。<br>我们为什么需要它？<br>Android设备繁多，不同设备有着不同的分辨率，如果我定义了一个两像素高和宽的View，那么它显示在高分辨率设备上要比低分辨率设备上要小得多，因为整个设备试图包含更多的像素。如果这是一个按钮的话，那么将会非常难按到上面。为了解决这种问题，我们提出了DP的概念，我可以定义我的按钮有2DP高和宽，那么它在任何分辨率的设备上都会显示出2DP高和宽而不受像素的限制。 在实际开发中我们建议所有可接触目标例如按钮的长和宽至少是48DP，注意一下，是48DP，而不是48像素。  </p>
+<h5 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h5><p>以这段代码为例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"Happy Birthday!"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@android:color/darker_gray"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"150dp"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"75dp"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>如果我们的text属性值很长的话，那么就会被自动分成多行，这看起来真的不是很好…如果可以设置宽度高度都为自动就好多了，不太大也不太小，那么应该如何操作呢？很简单，我们只需要把android:layout_width和android:layout_height赋值为“wrap_content”<br>如果我们想设置字体的大小，需要设置一下它的字号属性：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:textSize="45sp"</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这里出现了一个新单位：SP<br>SP的中文全称是比例无关像素的。这是一个类似于DP的单位，但SP只适用于字体，因为它是基于用户对字体大小的偏好和设置来调节的。打开Android设备，找到字体选项，选择放大按钮，那么所有TextView都会被放大，因此只有使用SP来定义字体大小它才会根据用户偏好来增加或缩小字体。关于这方面的设置可以看：<a href="https://design.google.com/" target="_blank" rel="external">Material Design官方网站</a>。  </p>
+<ul>
+<li><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:background="@android:color/darker_gray"</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在设置背景色的时候需要注意如果我们的颜色代码是在<a href="https://design.google.com/" target="_blank" rel="external">Material Design官方网站</a>中获取的话，需要修改背景色为#+对应的16进制值。  </p>
+<h4 id="ImageView"><a href="#ImageView" class="headerlink" title="ImageView"></a>ImageView</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ImageView</span>  </span></div><div class="line">    <span class="attr">android:src</span>=<span class="string">"@drawable/cake"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:scaleType</span>=<span class="string">"center"</span>  /&gt;</div></pre></td></tr></table></figure>
+<p>第一个属性是资源路径，就是说这个Image来自于“drawable/cake”，文件名叫做“cake”，使用@符号表示在android app里引用一个资源，drawable是这个资源的类型，drawable是类似图形的东西，能在屏幕上显示，cake是这个图片的名字，这里不用添加文件扩展名，不用说明是JPG还是PNG，名字就够了。<br> scaleType属性告诉设备在ImageView的边框里要放大还是要缩小图片，center值的意思是图片位于中心位置。 </p>
+<ul>
+<li>遇到一些新属性可以通过Android开发官方文档进行查阅。</li>
+<li>使用Google Searche。  </li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-XML/" rel="tag">#Android, XML</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/26/How-to-use-ShadowSocks-to-real-Internet/" rel="next" title="How to use ShadowSocks to real Internet">
+                <i class="fa fa-chevron-left"></i> How to use ShadowSocks to real Internet
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/15/StudyJams1B/" rel="prev" title="StudyJams1B">
+                StudyJams1B <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://img3.duitang.com/uploads/item/201509/15/20150915021628_ceA3K.thumb.700_0.jpeg"
+               alt="Pages" />
+          <p class="site-author-name" itemprop="name">Pages</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android开发中的View"><span class="nav-number">1.</span> <span class="nav-text">Android开发中的View</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">1.1.</span> <span class="nav-text">View</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#View是什么？"><span class="nav-number">1.1.1.</span> <span class="nav-text">View是什么？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE：集成开发环境"><span class="nav-number">1.2.</span> <span class="nav-text">IDE：集成开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XML：可拓展标记语言"><span class="nav-number">1.3.</span> <span class="nav-text">XML：可拓展标记语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的语法"><span class="nav-number">1.3.1.</span> <span class="nav-text">XML的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#观察代码"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">观察代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML语法详解"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">XML语法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性"><span class="nav-number">1.3.1.2.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单位DP"><span class="nav-number">1.3.1.2.2.</span> <span class="nav-text">单位DP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后续"><span class="nav-number">1.3.1.2.3.</span> <span class="nav-text">后续</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ImageView"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">ImageView</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pages</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OpenWrt4300," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="OpenWrt是什么   OpenWrt是一个用于嵌入式设备的GNU/Linux发行版，具有强大的扩展性。不同于其他许多用于路由器的发行版，OpenWrt是一个从零开始编写的、功能齐全的、容易修改的路由器操作系统。它也内置了包管理工具，你可以从一个软件商店里直接安装软件。比如VPN，SSH，Samba，transmission等等等等。它是个有大量软件包的嵌入式Linux系统，在许多方面它就跟计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wndr4300v1刷入OpenWrt固件">
+<meta property="og:url" content="http://yoursite.com/2016/02/04/4300-openwrt/index.html">
+<meta property="og:site_name" content="折腾日记">
+<meta property="og:description" content="OpenWrt是什么   OpenWrt是一个用于嵌入式设备的GNU/Linux发行版，具有强大的扩展性。不同于其他许多用于路由器的发行版，OpenWrt是一个从零开始编写的、功能齐全的、容易修改的路由器操作系统。它也内置了包管理工具，你可以从一个软件商店里直接安装软件。比如VPN，SSH，Samba，transmission等等等等。它是个有大量软件包的嵌入式Linux系统，在许多方面它就跟计算">
+<meta property="og:image" content="http://3.bp.blogspot.com/-nSBUly3C73s/UUrAdZ0og_I/AAAAAAAAA3w/CIAkZbvVF3E/s1600/Netgear+WNDR4300+review3.JPG">
+<meta property="og:image" content="http://ww3.sinaimg.cn/bmiddle/b104278ejw1f0qmqt04kkj20sg0lcae2.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/bmiddle/b104278ejw1f0pxygcpxij20m80gomzi.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/bmiddle/b104278ejw1f0py1tqdo1j20lz0httbc.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/b104278ejw1f0py5cytobj20it0axjs3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/bmiddle/b104278ejw1f0pycgh9f1j20it0axmxe.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/bmiddle/b104278ejw1f0pv0zjzcij208w06jgm0.jpg">
+<meta property="og:updated_time" content="2016-04-22T11:47:20.419Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wndr4300v1刷入OpenWrt固件">
+<meta name="twitter:description" content="OpenWrt是什么   OpenWrt是一个用于嵌入式设备的GNU/Linux发行版，具有强大的扩展性。不同于其他许多用于路由器的发行版，OpenWrt是一个从零开始编写的、功能齐全的、容易修改的路由器操作系统。它也内置了包管理工具，你可以从一个软件商店里直接安装软件。比如VPN，SSH，Samba，transmission等等等等。它是个有大量软件包的嵌入式Linux系统，在许多方面它就跟计算">
+<meta name="twitter:image" content="http://3.bp.blogspot.com/-nSBUly3C73s/UUrAdZ0og_I/AAAAAAAAA3w/CIAkZbvVF3E/s1600/Netgear+WNDR4300+review3.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/02/04/4300-openwrt/"/>
+
+  <title> wndr4300v1刷入OpenWrt固件 | 折腾日记 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">折腾日记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">折腾是一种生活态度</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                wndr4300v1刷入OpenWrt固件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-04T10:56:21+08:00" content="2016-02-04">
+              2016-02-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Route/" itemprop="url" rel="index">
+                    <span itemprop="name">Route</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OpenWrt是什么"><a href="#OpenWrt是什么" class="headerlink" title="OpenWrt是什么"></a>OpenWrt是什么</h1><p>   OpenWrt是一个用于嵌入式设备的GNU/Linux发行版，具有强大的扩展性。<br>不同于其他许多用于路由器的发行版，OpenWrt是一个从零开始编写的、功能齐全的、容易修改的路由器操作系统。它也内置了包管理工具，你可以从一个软件商店里直接安装软件。比如VPN，SSH，Samba，transmission等等等等。它是个有大量软件包的嵌入式Linux系统，在许多方面它就跟计算机上的Linux系统一样灵活————虽然它对硬件的约束要高得多。<br><a id="more"></a></p>
+<h1 id="如何给路由器安装OpenWrt"><a href="#如何给路由器安装OpenWrt" class="headerlink" title="如何给路由器安装OpenWrt"></a>如何给路由器安装OpenWrt</h1><p>   由于各路由配置不一，下面仅以wdnr4300v1为例，聊聊4300的OpenWrt。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>一台可插网线的Windows电脑<br>使用Windows仅仅是为了更方便，如果你对Linux更熟悉，当然也可以使用Linux。这里不对操作系统做过多讨论。</li>
+<li>一根网线<br>正品的Netgear提供了一根不错的线，推荐使用。如果线丢了的话，准备一条五类及以上的线，因为wndr4300v1的网口是千兆的，且现在的电脑也大都集成了千兆网卡，使用这样的网线可以直接支持千兆连接。</li>
+<li><p>一根牙签<br>用牙签插入路由器后盖上的“Restore Factory Settings”键，如果没有也没关系，只要能找到方便插入的工具就OK。<br><img src="http://3.bp.blogspot.com/-nSBUly3C73s/UUrAdZ0og_I/AAAAAAAAA3w/CIAkZbvVF3E/s1600/Netgear+WNDR4300+review3.JPG" alt="">  </p>
+</li>
+<li><p>tftp客户端<br>以Windows10（其他Windows版本大同小异）为例：如果你喜欢命令行(CLI)模式可以看方法一，如果喜欢图形界面(GUI)可以看方法二。<br>点击<a href="http://www.shadowsoftware.net/shadowgameworld/downloads/tftp2.exe" target="_blank" rel="external">这里</a>下载tftp客户端。需要注意的是这个图形化的 tftp 客户端工具不支持大小超过 16MB 的文件传输</p>
+</li>
+<li><p>下载OpenWrt固件<br>我们要下载OpenWrt固件，点击<a href="http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-ubi-factory.img" target="_blank" rel="external">这里</a>下载<br>。<br>下载完成后，我们需要升级当前版本，升级包点击<a href="http://downloads.openwrt.org/chaos_calmer/15.05/ar71xx/nand/openwrt-15.05-ar71xx-nand-wndr4300-squashfs-sysupgrade.tar" target="_blank" rel="external">这里</a>下载。<br><img src="http://ww3.sinaimg.cn/bmiddle/b104278ejw1f0qmqt04kkj20sg0lcae2.jpg" alt="">  </p>
+</li>
+</ul>
+<h2 id="刷机准备"><a href="#刷机准备" class="headerlink" title="刷机准备"></a>刷机准备</h2><ol>
+<li>Windows勾选上“控制面板—程序—程序和功能—启用或关闭Windows功能—tftp客户端”<br><img src="http://ww2.sinaimg.cn/bmiddle/b104278ejw1f0pxygcpxij20m80gomzi.jpg" alt=""> </li>
+<li>设置计算机IP为192.168.1.2，设置子网掩码为255.255.255.0。<br><img src="http://ww3.sinaimg.cn/bmiddle/b104278ejw1f0py1tqdo1j20lz0httbc.jpg" alt=""></li>
+<li>关闭路由器电源</li>
+<li>将网线的一端插到电脑上，另一端插入路由器的LAN口（最好拔掉接入其他LAN口的设备）</li>
+<li>将牙签的一端插入路由器后盖的”Restore Factory Settings”孔内，按住按钮不要松手，然后给路由器通电。</li>
+<li>等待路由器的电源灯从黄灯变为绿灯并一直在闪烁再松开牙签。  </li>
+</ol>
+<h2 id="刷机方法"><a href="#刷机方法" class="headerlink" title="刷机方法"></a>刷机方法</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><ul>
+<li>打开cmd，输入</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping -t 192.168.1.1</div></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/mw690/b104278ejw1f0py5cytobj20it0axjs3.jpg" alt=""><br>以便于监控路由器在刷机过程中的状态。<br>此时应该已ping通并在屏幕上显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">来自 192.168.1.1 的回复：字节=32 时间&lt;1ms TTL=64</div></pre></td></tr></table></figure></p>
+<ul>
+<li>此时打开第二个cmd，并切到OpenWrt固件的存放路径，这里以G:\为例  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">G:</div><div class="line">tftp -i 192.168.1.1 PUT xxx.img</div></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/bmiddle/b104278ejw1f0pycgh9f1j20it0axmxe.jpg" alt=""></p>
+<p><strong>注：</strong>这里的“xxx”为固件名称。<br>等待3~5分钟，注意看第一个cmd中是否一直能ping通（持续10s以上）</p>
+<ul>
+<li><p>断电（否则会没有5Ghz的Wi-Fi）  </p>
+<p>  步骤如下  </p>
+<ol>
+<li>直接拔掉电源插座，等待5秒左右。（先拔掉电源插座，然后关掉路由器上的开关）<br>2.插上电源插座，等待5秒左右。打开路由器上的开关。  </li>
+</ol>
+</li>
+</ul>
+<p>刷机结束！</p>
+<ul>
+<li>把光纤插入WAN口  </li>
+<li>浏览器打开192.168.1.1  </li>
+<li>默认账号：root  默认密码：无。</li>
+</ul>
+<p><strong>Enjoy OpenWrt!</strong></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><ul>
+<li>点击<a href="http://www.shadowsoftware.net/shadowgameworld/downloads/tftp2.exe" target="_blank" rel="external">这里</a>下载tftp客户端。  </li>
+<li>打开cmd，输入  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping -t 192.168.1.1</div></pre></td></tr></table></figure>
+<p>以便于监控路由器在刷机过程中的状态。<br>此时应该已ping通并在屏幕上显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">来自 192.168.1.1 的回复：字节=32 时间&lt;1ms TTL=64</div></pre></td></tr></table></figure></p>
+<h4 id="tftp客户端使用方法"><a href="#tftp客户端使用方法" class="headerlink" title="tftp客户端使用方法"></a>tftp客户端使用方法</h4><p><img src="http://ww1.sinaimg.cn/bmiddle/b104278ejw1f0pv0zjzcij208w06jgm0.jpg" alt=""></p>
+<ol>
+<li>Server填路由器的IP，也就是192.168.1.1</li>
+<li>Password为空</li>
+<li>File填固件所在目录(也就是G:)</li>
+<li>点击Upgrade</li>
+<li>等待3~5分钟,注意看第一个cmd中是否一直能ping通（持续10s以上）</li>
+<li>断电（否则会没有5Ghz的Wi-Fi）<br>（步骤同方法一）</li>
+</ol>
+<p><strong>Enjoy OpenWrt!</strong>  </p>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>因为刷好的OpenWrt版本较旧，我们可以对其更新。如何更新呢？我们可以直接利用上文提到的“升级包”在luci页面里更新。  </p>
+<ol>
+<li>浏览器地址栏中输入<a href="http://192.168.1.1" target="_blank" rel="external">192.168.1.1</a>后回车。  </li>
+<li>在”System—Backup/Flash Firmware—Flash new firmware image”后点击”Choose File”。</li>
+<li>选择升级包路径，点击”Flash Image—Proceed”</li>
+<li>等待3~5分钟（期间路由器千万不能断电！）</li>
+<li>重新登陆<a href="http://192.168.1.1" target="_blank" rel="external">192.168.1.1</a>  </li>
+</ol>
+<p><strong>Enjoy OpenWrt!</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OpenWrt4300/" rel="tag">#OpenWrt4300</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/09/ssrserver-on-linux-vps/" rel="prev" title="如何在VPS上搭建属于自己的shadowsocks服务">
+                如何在VPS上搭建属于自己的shadowsocks服务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://img3.duitang.com/uploads/item/201509/15/20150915021628_ceA3K.thumb.700_0.jpeg"
+               alt="Pages" />
+          <p class="site-author-name" itemprop="name">Pages</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenWrt是什么"><span class="nav-number">1.</span> <span class="nav-text">OpenWrt是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何给路由器安装OpenWrt"><span class="nav-number">2.</span> <span class="nav-text">如何给路由器安装OpenWrt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">2.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷机准备"><span class="nav-number">2.2.</span> <span class="nav-text">刷机准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷机方法"><span class="nav-number">2.3.</span> <span class="nav-text">刷机方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">2.3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tftp客户端使用方法"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">tftp客户端使用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续"><span class="nav-number">2.4.</span> <span class="nav-text">后续</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pages</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
